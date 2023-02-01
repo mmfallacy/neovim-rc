@@ -289,10 +289,10 @@ Duration = 55
 # Disable = false
 
 ## Specifies whether to show the minimap or not.
-# Visible = true
+Visible = true
 
 ## Specifies the width of the minimap.
-# Width = 100
+Width = 60
 
 [SideBar]
 ## Specifies whether to show the external sidebar or not.
@@ -321,4 +321,4 @@ Duration = 55
 # PathStyle = "minimum"
 
 ## Specifies whether the last exited session should be restored at the next startup.
-# RestoreSession = false
+RestoreSession = false
