@@ -14,10 +14,24 @@ function plugins(use)
 			config = require'mmfallacy.themes.onedark'
 		}
 	}
+
+	-- Telescope
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+
+	-- Treesitter
+	use {
+		'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+		config = require'mmfallacy.configs.treesitter'
+	}
+
+  -- Lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 end
 
 return require'packer'.startup(plugins)

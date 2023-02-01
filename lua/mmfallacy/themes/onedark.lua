@@ -6,5 +6,15 @@ return function()
 		ending_tildes = false,
 	})
 	od.load()
+
+  local ll = require'lualine'
+  ll.setup({
+    options = {
+      theme = 'onedark'
+    }
+  })
 end
+
+
+
 
