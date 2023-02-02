@@ -38,7 +38,8 @@ function plugins(use)
   }
 
   use {
-    'tpope/surround'
+    'echasnovski/mini.surround',
+    config = function() require'mini.surround'.setup() end
   }
 
   use {
