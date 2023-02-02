@@ -42,11 +42,9 @@ function plugins(use)
   }
 
   use {
-    'windwp/nvim-autopairs',
-    requires = 'hrsh7th/nvim-cmp',
+    'echasnovski/mini.pairs', bracnh = 'stable',
     config = require'mmfallacy.configs.autopairs'
   }
-
 
   -- Lualine
   use {
