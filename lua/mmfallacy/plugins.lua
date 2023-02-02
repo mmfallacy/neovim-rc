@@ -51,6 +51,11 @@ function plugins(use)
         'lukas-reineke/indent-blankline.nvim',
         config = require'mmfallacy.configs.indents'
     }
+    
+    use {
+        'echasnovski/mini.tabline',
+        config = function() require'mini.tabline'.setup() end
+    }
 
     -- Lualine
     use {
