@@ -21,11 +21,33 @@ function plugins(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  -- Treesitter
+  -- Syntax analyzers
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
     config = require'mmfallacy.configs.treesitter'
   }
+
+  use {
+    'numToStr/Comment.nvim',
+    requires = 'nvim-treesitter/nvim-treesitter',
+    config = require'mmfallacy.configs.comment'
+  }
+
+  -- QOL
+  use {
+    'rafamadriz/friendly-snippets'
+  }
+
+  use {
+    'tpope/surround'
+  }
+
+  use {
+    'windwp/nvim-autopairs',
+    requires = 'hrsh7th/nvim-cmp',
+    config = require'mmfallacy.configs.autopairs'
+  }
+
 
   -- Lualine
   use {
@@ -56,6 +78,7 @@ function plugins(use)
       {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
+
 end
 
 return require'packer'.startup(plugins)
