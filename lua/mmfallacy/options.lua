@@ -20,6 +20,7 @@ o.nu = true
 o.relativenumber = true
 o.rnu = true
 o.updatetime = 50
+o.lazyredraw = true
 
 -- Indents
 o.tabstop = 2
