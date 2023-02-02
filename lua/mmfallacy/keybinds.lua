@@ -5,6 +5,7 @@ local map = vim.keymap.set
 -- Normal Remaps
 map("n", "<leader>pv", vim.cmd.Ex)
 map({"n","v","c","i"}, "<C-c>", "<Esc>")
+map("n", "<C-a>", "ggVG")
 
 -- Buffer Remaps (ful1e5)
 map('n', '<space>]', vim.cmd.bnext)
