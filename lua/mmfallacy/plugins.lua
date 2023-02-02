@@ -28,8 +28,7 @@ function plugins(use)
   }
 
   use {
-    'numToStr/Comment.nvim',
-    requires = 'nvim-treesitter/nvim-treesitter',
+    'echasnovski/mini.comment', branch = 'stable',
     config = require'mmfallacy.configs.comment'
   }
 

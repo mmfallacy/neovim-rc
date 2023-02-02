@@ -1,12 +1,10 @@
 return function()
-  local c = require'Comment'
+  local c = require'mini.comment'
   c.setup {
-    opleader = {
-      line = '<C-/>', 
-      block = '<C-S-/>',
-    }, 
     mappings = {
-     extra = false
+      comment = '<C-/>',
+      comment_line = '<C-/>',
+      textobject = '<C-/>',
     }
-  }
+  } 
 end
