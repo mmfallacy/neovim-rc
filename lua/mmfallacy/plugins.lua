@@ -28,7 +28,7 @@ function plugins(use)
   }
 
   use {
-    'echasnovski/mini.comment', branch = 'stable',
+    'echasnovski/mini.comment',
     config = require'mmfallacy.configs.comment'
   }
 
@@ -43,7 +43,7 @@ function plugins(use)
   }
 
   use {
-    'echasnovski/mini.pairs', bracnh = 'stable',
+    'echasnovski/mini.pairs',
     config = require'mmfallacy.configs.autopairs'
   }
 
