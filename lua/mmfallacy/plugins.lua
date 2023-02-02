@@ -47,6 +47,11 @@ function plugins(use)
     config = require'mmfallacy.configs.autopairs'
   }
 
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = require'mmfallacy.configs.indents'
+  }
+
   -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
