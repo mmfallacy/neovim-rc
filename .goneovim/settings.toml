@@ -147,7 +147,7 @@ SmoothScrollDuration = 300
 
 ## Controls whether mouse events in Neovim are ignored when
 ## an application window is clicked while the application window is inactive.
-# IgnoreFirstMouseClickWhenAppInactivated = false
+IgnoreFirstMouseClickWhenAppInactivated = true
 
 # Display the effect when clicked
 # ClickEffect = false
@@ -296,7 +296,7 @@ Width = 60
 
 [SideBar]
 ## Specifies whether to show the external sidebar or not.
-# Visible = false
+# Visible = true
 
 ## Specify the sidebar width
 # Width = 200
