@@ -32,11 +32,6 @@ function plugins(use)
         config = require'mmfallacy.configs.comment'
     }
 
-    -- QOL
-    use {
-        'rafamadriz/friendly-snippets'
-    }
-
     use {
         'echasnovski/mini.surround',
         config = function() require'mini.surround'.setup() end
@@ -65,26 +60,34 @@ function plugins(use)
 
     -- LSP
     use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
-        requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim'},           -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
 
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},         -- Required
-            {'hrsh7th/cmp-nvim-lsp'},     -- Required
-            {'hrsh7th/cmp-buffer'},       -- Optional
-            {'hrsh7th/cmp-path'},         -- Optional
-            {'saadparwaiz1/cmp_luasnip'}, -- Optional
-            {'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},             -- Required
-            {'rafamadriz/friendly-snippets'}, -- Optional
-        }
+    -- Snippet
+    use 'rafamadriz/friendly-snippets'
+    use 'L3MON4D3/LuaSnip'
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = 'L3MON4D3/LuaSnip',
+        config = require'mmfallacy.configs.cmp',
+    }
+    use {
+        'hrsh7th/cmp-buffer',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'saadparwaiz1/cmp_luasnip',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'hrsh7th/cmp-path',
+        requires = 'hrsh7th/nvim-cmp',
     }
 
 end
