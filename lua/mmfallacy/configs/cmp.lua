@@ -11,16 +11,17 @@ return function()
             { name = 'path', max_item_count = 5 },
         }),
         mapping = cmp.mapping.preset.insert {
-            ['<C-p>'] = cmp.mapping.select_prev_item(),
-            ['<C-n>'] = cmp.mapping.select_next_item(),
-            ['<C-Up>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-Down>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-Up>'] = cmp.mapping.select_prev_item(),
+            ['<C-Down>'] = cmp.mapping.select_next_item(),
             ['<C-e>'] = cmp.mapping.abort(),
             ['<CR>'] = cmp.mapping.confirm {
                 select = true,
                 behavior = cmp.ConfirmBehavior.Replace,
             },
         },
+        experimental = {
+            ghost_text = true
+        }
+         
     }
 end
