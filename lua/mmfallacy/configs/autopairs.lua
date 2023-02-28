@@ -1,5 +1,5 @@
 return function()
-  require'nvim-autopairs'.setup {
-    check_ts=true
-  }
+    require'mini.pairs'.setup {
+
+    }
 end

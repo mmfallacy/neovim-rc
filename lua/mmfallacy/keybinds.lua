@@ -5,13 +5,12 @@ local map = vim.keymap.set
 -- Normal Remaps
 map("n", "<leader>pv", vim.cmd.Ex)
 map({"n","v","c","i"}, "<C-c>", "<Esc>")
+map("n", "<C-a>", "ggVG")
 
 -- Buffer Remaps (ful1e5)
-map('n', '<space>]', vim.cmd.bnext)
-map('n', '<space>[', vim.cmd.bprev)
-map('n', '<space>bd', vim.cmd.bdelete)
-map('n', '<space>bdf', ':bd!<CR>')
-map('n', '<space>bda', ':%bd!<CR>')
+map('n', '<leader>]', vim.cmd.bnext)
+map('n', '<leader>[', vim.cmd.bprev)
+
 -- Line Transforms using Alt (ful1e5)
 
 map('n', '<A-Down>', ':m .+1<CR>==')

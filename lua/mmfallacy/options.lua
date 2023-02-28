@@ -21,11 +21,12 @@ o.relativenumber = true
 o.rnu = true
 o.updatetime = 50
 o.lazyredraw = true
+o.wrap =true
 
 -- Indents
-o.tabstop = 2
-o.shiftwidth = 2
-o.softtabstop = 2
+o.tabstop = 4
+o.shiftwidth = 4
+o.softtabstop = 4
 o.expandtab = true
 o.smartindent = true
 
@@ -33,6 +34,9 @@ o.smartindent = true
 o.hlsearch = false
 o.incsearch = true
 
+-- Split
+o.splitbelow = true
+o.splitright = true
 
 
 
