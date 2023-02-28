@@ -32,11 +32,6 @@ function plugins(use)
         config = require'mmfallacy.configs.comment'
     }
 
-    -- QOL
-    use {
-        'rafamadriz/friendly-snippets'
-    }
-
     use {
         'echasnovski/mini.surround',
         config = function() require'mini.surround'.setup() end
@@ -69,6 +64,32 @@ function plugins(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
+
+    -- Snippet
+    use 'rafamadriz/friendly-snippets'
+    use 'L3MON4D3/LuaSnip'
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = 'L3MON4D3/LuaSnip',
+        config = require'mmfallacy.configs.cmp',
+    }
+    use {
+        'hrsh7th/cmp-buffer',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'saadparwaiz1/cmp_luasnip',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'hrsh7th/cmp-path',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+
 end
 
 return require'packer'.startup(plugins)
