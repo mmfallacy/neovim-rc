@@ -10,6 +10,7 @@ require"mason-lspconfig".setup({
 
 local on_attach = function (_,_ )
     vim.keymap.set('n', "K", vim.lsp.buf.hover)
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 end
 
 local lsp = require"lspconfig"
