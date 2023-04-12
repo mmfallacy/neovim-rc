@@ -25,6 +25,14 @@ function plugins(use)
         requires = { { 'nvim-lua/plenary.nvim' } },
         config = require 'mmfallacy.configs.telescope'
     }
+    -- Nvim-Tree
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+        config = require 'mmfallacy.configs.nvim-tree'
+    }
 
     -- Syntax analyzers
     use {
@@ -100,6 +108,7 @@ function plugins(use)
         'lewis6991/gitsigns.nvim',
         config = function() require 'gitsigns'.setup() end
     }
+
 end
 
 return require 'packer'.startup(plugins)
