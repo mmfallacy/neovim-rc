@@ -11,46 +11,50 @@ function plugins(use)
         },
         {
             'navarasu/onedark.nvim',
-            config = require'mmfallacy.themes.onedark'
+            config = require 'mmfallacy.themes.onedark'
+        },
+        {
+            'AlexvZyl/nordic.nvim',
+            -- config = require 'mmfallacy.themes.nordic'
         }
     }
 
     -- Telescope
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { {'nvim-lua/plenary.nvim'} },
-        config = require'mmfallacy.configs.telescope'
+        requires = { { 'nvim-lua/plenary.nvim' } },
+        config = require 'mmfallacy.configs.telescope'
     }
 
     -- Syntax analyzers
     use {
         'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-        config = require'mmfallacy.configs.treesitter'
+        config = require 'mmfallacy.configs.treesitter'
     }
 
     use {
         'echasnovski/mini.comment',
-        config = require'mmfallacy.configs.comment'
+        config = require 'mmfallacy.configs.comment'
     }
 
     use {
         'echasnovski/mini.surround',
-        config = function() require'mini.surround'.setup() end
+        config = function() require 'mini.surround'.setup() end
     }
 
     use {
         'echasnovski/mini.pairs',
-        config = require'mmfallacy.configs.autopairs'
+        config = require 'mmfallacy.configs.autopairs'
     }
 
     use {
         'lukas-reineke/indent-blankline.nvim',
-        config = require'mmfallacy.configs.indents'
+        config = require 'mmfallacy.configs.indents'
     }
-    
+
     use {
         'echasnovski/mini.tabline',
-        config = function() require'mini.tabline'.setup() end
+        config = function() require 'mini.tabline'.setup() end
     }
 
     -- Lualine
@@ -72,7 +76,7 @@ function plugins(use)
     use {
         'hrsh7th/nvim-cmp',
         requires = 'L3MON4D3/LuaSnip',
-        config = require'mmfallacy.configs.cmp',
+        config = require 'mmfallacy.configs.cmp',
     }
     use {
         'hrsh7th/cmp-buffer',
@@ -91,6 +95,11 @@ function plugins(use)
         requires = 'hrsh7th/nvim-cmp',
     }
 
+    -- Git Integration
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function() require 'gitsigns'.setup() end
+    }
 end
 
-return require'packer'.startup(plugins)
+return require 'packer'.startup(plugins)
