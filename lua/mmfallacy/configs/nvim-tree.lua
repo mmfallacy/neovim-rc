@@ -3,7 +3,6 @@ return function()
         auto_reload_on_write = false,
         update_cwd = true,
         hijack_cursor = true,
-        filters = { dotfiles = true },
         renderer = {
             add_trailing = true,
             group_empty = true,
@@ -19,6 +18,15 @@ return function()
             },
         },
         git = { ignore = true },
-        view = { side = 'right' },
+        view = {
+            side = 'right',
+            mappings = {
+                list = {
+                    { key = "<C-o>", action = nil, mode = "n" },
+                    { key = "<C-p>", action = nil, mode = "n" }
+                }
+            }
+        },
     }
+
 end
