@@ -1,10 +1,10 @@
 return function()
-    local c = require'mini.comment'
+    local c = require 'mini.comment'
     c.setup {
         mappings = {
-            comment = '<C-/>',
-            comment_line = '<C-/>',
-            textobject = '<C-/>',
+            comment = 'gc',
+            comment_line = 'gcc',
+            textobject = 'gc',
         }
-    } 
+    }
 end
