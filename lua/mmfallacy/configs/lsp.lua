@@ -19,9 +19,25 @@ local on_attach = function(client, bufnr)
         vim.keymap.set(mode, combo, macro, { buffer = bufnr, noremap = true, silent = true })
     end
 
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     bufmap('n', 'K', vim.lsp.buf.hover)
     bufmap('n', 'gD', vim.lsp.buf.declaration)
+    bufmap('n', '<C-k>', vim.lsp.buf.signature_help)
+    bufmap('n', '<leader>fmt', function() vim.lsp.buf.format { async = true } end)
+    bufmap('n', '<leader>pd', function() vim.diagnostic.open_float { scope = 'cursor' } end)
+    bufmap('n', '<leader>ld', function() vim.diagnostic.open_float { scope = 'line' } end)
+    bufmap('n', '<leader>ca', vim.lsp.buf.code_action)
     vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
+    local t = require 'telescope.builtin'
+    bufmap('n', '<leader>wd', t.diagnostics)
+    bufmap('n', '<leader>dd', function() t.diagnostics({ bufnr = 0 }) end)
+    bufmap('n', 'gd', t.lsp_definitions)
+    -- bufmap('n', 'gi', t.lsp_implementations)
+    bufmap('n', 'gt', t.lsp_type_definitions)
+    bufmap('n', 'gr', t.lsp_references)
+    -- bufmap('n', '<leader>ws', t.lsp_workspace_symbols)
+    bufmap('n', '<leader>ds', t.lsp_document_symbols)
     -- if lsp.util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) and client.name == "tsserver" then
     --     client.stop()
     -- end

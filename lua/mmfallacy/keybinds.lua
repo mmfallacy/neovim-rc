@@ -26,8 +26,8 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 local t = require 'telescope.builtin'
 map('n', '<leader>fg', t.git_files, silent_noremap)
 map('n', '<leader>fr', t.live_grep, silent_noremap)
-map('n', '<C-p>', t.find_files, silent_noremap)
-map('n', '<C-o>', function() t.find_files({ cwd = vim.fn.stdpath('config') }) end, silent_noremap)
+map('n', '<leader>fp', t.find_files, silent_noremap)
+map('n', '<leader>f,', function() t.find_files({ cwd = vim.fn.stdpath('config') }) end, silent_noremap)
 map('n', '<leader>ft', t.treesitter, silent_noremap)
 map('n', '<leader>fb', t.buffers, silent_noremap)
 
