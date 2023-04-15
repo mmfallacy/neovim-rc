@@ -51,6 +51,11 @@ function plugins(use)
     }
 
     use {
+        'echasnovski/mini.cursorword',
+        config = function() require 'mini.cursorword'.setup() end
+    }
+
+    use {
         'echasnovski/mini.pairs',
         config = require 'mmfallacy.configs.autopairs'
     }
