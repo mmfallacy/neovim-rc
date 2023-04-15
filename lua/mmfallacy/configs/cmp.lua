@@ -13,13 +13,15 @@ return function()
         mapping = cmp.mapping.preset.insert {
             ['<Up>'] = cmp.mapping.close(),
             ['<Down>'] = cmp.mapping.close(),
-            ['<C-Up>'] = cmp.mapping.select_prev_item(),
-            ['<C-Down>'] = cmp.mapping.select_next_item(),
+            ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+            ['<Tab>'] = cmp.mapping.select_next_item(),
             ['<C-e>'] = cmp.mapping.abort(),
-            ['<C-Enter>'] = cmp.mapping.confirm {
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<CR>'] = cmp.mapping.confirm {
                 select = true,
                 behavior = cmp.ConfirmBehavior.Replace,
             },
+
         },
         experimental = {
             ghost_text = true
