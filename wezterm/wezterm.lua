@@ -19,6 +19,16 @@ config.keys = {
         mods = 'CTRL|SHIFT',
         action = wezterm.action.CloseCurrentPane { confirm = true },
     },
+    {
+        key = "UpArrow",
+        mods = "SHIFT|ALT",
+        action = wezterm.action.ScrollByPage(-1)
+    },
+    {
+        key = "DownArrow",
+        mods = "SHIFT|ALT",
+        action = wezterm.action.ScrollByPage(1)
+    }
 }
 
 return config
