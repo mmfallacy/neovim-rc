@@ -45,7 +45,13 @@ end
 -- Language Server Setups
 lsp.lua_ls.setup { on_attach = on_attach, capabilities = caps }
 lsp.eslint.setup {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
+    end,
     root_dir = lsp.util.root_pattern('.eslintrc',
         'eslintrc.js',
         '.eslintrc.cjs',
