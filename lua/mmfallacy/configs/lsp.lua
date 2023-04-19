@@ -14,7 +14,7 @@ require "mason-lspconfig".setup({
 local lsp = require "lspconfig"
 local caps = require 'cmp_nvim_lsp'.default_capabilities()
 
-local on_attach = function(client, bufnr)
+local on_attach_base = function(client, bufnr)
     local function bufmap(mode, combo, macro)
         vim.keymap.set(mode, combo, macro, { buffer = bufnr, noremap = true, silent = true })
     end
@@ -27,7 +27,6 @@ local on_attach = function(client, bufnr)
     bufmap('n', '<leader>pd', function() vim.diagnostic.open_float { scope = 'cursor' } end)
     bufmap('n', '<leader>ld', function() vim.diagnostic.open_float { scope = 'line' } end)
     bufmap('n', '<leader>ca', vim.lsp.buf.code_action)
-    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
     local t = require 'telescope.builtin'
     bufmap('n', '<leader>wd', t.diagnostics)
@@ -42,11 +41,16 @@ local on_attach = function(client, bufnr)
     --     client.stop()
     -- end
 end
+
+local on_attach = function(client, bufnr)
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+    on_attach_base(client, bufnr);
+end
 -- Language Server Setups
 lsp.lua_ls.setup { on_attach = on_attach, capabilities = caps }
 lsp.eslint.setup {
     on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
+        on_attach_base(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
             command = "EslintFixAll",
@@ -92,6 +96,6 @@ lsp.emmet_ls.setup {
     }
 }
 lsp.svelte.setup {
-    on_attach = on_attach,
+    on_attach = on_attach_base,
     capabilities = caps
 }
