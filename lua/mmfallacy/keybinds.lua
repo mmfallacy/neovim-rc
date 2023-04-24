@@ -34,3 +34,4 @@ map('n', '<leader>fb', t.buffers, silent_noremap)
 -- Sync Arrow Keys to HJKL
 map({ 'n', 'v' }, "<Left>", "<nop>")
 map({ 'n', 'v' }, "<Right>", "<nop>")
+map({ 'n' }, "K", "<nop>")
