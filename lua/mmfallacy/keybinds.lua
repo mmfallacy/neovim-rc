@@ -10,7 +10,7 @@ map({ "n", "v", "c", "i" }, "<C-c>", "<Esc>")
 -- Buffer Remaps (ful1e5)
 map('n', '<leader>]', vim.cmd.bnext)
 map('n', '<leader>[', vim.cmd.bprev)
-map('n', '<leader>bd', ":confirm bd<CR>")
+map('n', '<leader>bd', ":confirm bd<CR>", silent_noremap)
 map('n', '<leader>n', ":NvimTreeToggle<CR>", noremap)
 
 -- Line Transforms using Alt (ful1e5)
