@@ -42,6 +42,11 @@ function plugins(use)
 
     use {
         'AndrewRadev/tagalong.vim',
+        config = function()
+            vim.cmd [[
+                let g:tagalong_additional_filetypes = ['svelte']
+            ]]
+        end
     }
 
     use {
