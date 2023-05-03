@@ -2,7 +2,6 @@ require "mason".setup()
 require "mason-lspconfig".setup({
     ensure_installed = {
         'tsserver',
-        'eslint',
         'lua_ls',
         'rust_analyzer',
         'emmet_ls',
@@ -44,28 +43,28 @@ local on_attach_base = function(client, bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({timeout_ms = 5000})]]
     on_attach_base(client, bufnr);
 end
 -- Language Server Setups
 lsp.lua_ls.setup { on_attach = on_attach, capabilities = caps }
-lsp.eslint.setup {
-    on_attach = function(client, bufnr)
-        on_attach_base(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-        })
-    end,
-    root_dir = lsp.util.root_pattern('.eslintrc',
-        'eslintrc.js',
-        '.eslintrc.cjs',
-        '.eslintrc.yaml',
-        '.eslintrc.yml',
-        '.eslintrc.json',
-        'eslint.config.js'),
-    capabilities = caps
-}
+-- lsp.eslint.setup {
+--     on_attach = function(client, bufnr)
+--         on_attach_base(client, bufnr)
+--         vim.api.nvim_create_autocmd("BufWritePre", {
+--             buffer = bufnr,
+--             command = "EslintFixAll",
+--         })
+--     end,
+--     root_dir = lsp.util.root_pattern('.eslintrc',
+--         'eslintrc.js',
+--         '.eslintrc.cjs',
+--         '.eslintrc.yaml',
+--         '.eslintrc.yml',
+--         '.eslintrc.json',
+--         'eslint.config.js'),
+--     capabilities = caps
+-- }
 lsp.denols.setup {
     on_attach = on_attach,
     capabilities = caps,
@@ -83,7 +82,7 @@ lsp.denols.setup {
     }
 }
 lsp.tsserver.setup {
-    on_attach = on_attach,
+    on_attach = on_attach_base,
     capabilities = caps,
     single_file_support = false,
     root_dir = lsp.util.root_pattern("package.json", "tsconfig.json", "tsconfig.jsonc", "package.jsonc")
@@ -114,4 +113,28 @@ lsp.pyright.setup {
             }
         }
     }
+}
+
+local null_ls = require "null-ls"
+
+null_ls.setup {
+    sources = {
+        null_ls.builtins.code_actions.eslint_d.with {
+            extra_filetypes = { "svelte" },
+        },
+        null_ls.builtins.diagnostics.eslint_d.with {
+            extra_filetypes = { "svelte" },
+        },
+        null_ls.builtins.formatting.eslint_d.with {
+            extra_filetypes = { "svelte" },
+        },
+        null_ls.builtins.code_actions.gitsigns,
+        -- null_ls.builtins.formatting.prettierd.with {
+        --     extra_filetypes = { "svelte" },
+        --     env = {
+        --         PRETTIERD_LOCAL_PRETTIER_ONLY = 1
+        --     }
+        -- },
+    },
+    on_attach = on_attach
 }

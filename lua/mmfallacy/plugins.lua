@@ -41,6 +41,10 @@ function plugins(use)
     }
 
     use {
+        'AndrewRadev/tagalong.vim',
+    }
+
+    use {
         'echasnovski/mini.comment',
         config = require 'mmfallacy.configs.comment'
     }
@@ -81,6 +85,11 @@ function plugins(use)
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+    }
+
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = 'nvim-lua/plenary.nvim',
     }
 
     -- Snippet
