@@ -92,7 +92,7 @@ lsp.emmet_ls.setup {
     on_attach = on_attach,
     capabilities = caps,
     filetypes = {
-        'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss'
+        'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'svelte'
     }
 }
 lsp.svelte.setup {
