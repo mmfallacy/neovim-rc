@@ -8,6 +8,7 @@ require "mason-lspconfig".setup({
         'denols',
         'svelte',
         'pyright',
+        'tailwindcss-language-server'
     }
 })
 
@@ -114,6 +115,10 @@ lsp.pyright.setup {
         }
     }
 }
+lsp.tailwindcss.setup {
+    on_attach = on_attach,
+    capabilities = caps,
+}
 
 local null_ls = require "null-ls"
 
@@ -129,12 +134,12 @@ null_ls.setup {
             extra_filetypes = { "svelte" },
         },
         null_ls.builtins.code_actions.gitsigns,
-        -- null_ls.builtins.formatting.prettierd.with {
-        --     extra_filetypes = { "svelte" },
-        --     env = {
-        --         PRETTIERD_LOCAL_PRETTIER_ONLY = 1
-        --     }
-        -- },
+        null_ls.builtins.formatting.prettierd.with {
+            extra_filetypes = { "svelte" },
+            env = {
+                PRETTIERD_LOCAL_PRETTIER_ONLY = 1
+            }
+        },
     },
     on_attach = on_attach
 }
