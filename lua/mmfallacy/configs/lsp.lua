@@ -28,6 +28,7 @@ local on_attach_base = function(client, bufnr)
     bufmap('n', '<leader>pd', function() vim.diagnostic.open_float { scope = 'cursor' } end)
     bufmap('n', '<leader>ld', function() vim.diagnostic.open_float { scope = 'line' } end)
     bufmap('n', '<leader>ca', vim.lsp.buf.code_action)
+    bufmap('n', '<F2>', vim.lsp.buf.rename)
 
     local t = require 'telescope.builtin'
     bufmap('n', '<leader>wd', t.diagnostics)
