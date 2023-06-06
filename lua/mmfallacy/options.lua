@@ -15,7 +15,6 @@ o.wrap = false
 o.scrolloff = 8
 o.termguicolors = true
 o.linebreak = true
-o.signcolumn = 'number'
 o.nu = true
 o.relativenumber = true
 o.rnu = true
