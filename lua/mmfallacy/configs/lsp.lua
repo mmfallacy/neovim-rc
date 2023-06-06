@@ -8,7 +8,8 @@ require "mason-lspconfig".setup({
         'denols',
         'svelte',
         'pyright',
-        'tailwindcss'
+        'tailwindcss',
+        'eslint',
     }
 })
 
@@ -92,19 +93,21 @@ lsp.tailwindcss.setup {
     capabilities = caps,
 }
 
+lsp.eslint.setup {
+    on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
+        on_attach_base(client, bufnr)
+    end,
+    capabilities = caps,
+}
+
 local null_ls = require "null-ls"
 
 null_ls.setup {
     sources = {
-        null_ls.builtins.code_actions.eslint_d.with {
-            extra_filetypes = { "svelte" },
-        },
-        null_ls.builtins.diagnostics.eslint_d.with {
-            extra_filetypes = { "svelte" },
-        },
-        null_ls.builtins.formatting.eslint_d.with {
-            extra_filetypes = { "svelte" },
-        },
         null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.formatting.prettierd.with {
             extra_filetypes = { "svelte" },
