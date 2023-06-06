@@ -34,14 +34,9 @@ local on_attach_base = function(client, bufnr)
     bufmap('n', '<leader>wd', t.diagnostics)
     bufmap('n', '<leader>dd', function() t.diagnostics({ bufnr = 0 }) end)
     bufmap('n', 'gd', t.lsp_definitions)
-    -- bufmap('n', 'gi', t.lsp_implementations)
     bufmap('n', 'gt', t.lsp_type_definitions)
     bufmap('n', 'gr', t.lsp_references)
-    -- bufmap('n', '<leader>ws', t.lsp_workspace_symbols)
     bufmap('n', '<leader>ds', t.lsp_document_symbols)
-    -- if lsp.util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) and client.name == "tsserver" then
-    --     client.stop()
-    -- end
 end
 
 local on_attach = function(client, bufnr)
