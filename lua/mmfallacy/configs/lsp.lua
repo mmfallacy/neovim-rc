@@ -87,21 +87,6 @@ lsp.svelte.setup {
     on_attach = on_attach_base,
     capabilities = caps
 }
-lsp.pyright.setup {
-    on_attach = on_attach,
-    capabilities = caps,
-    settings = {
-        python = {
-            analysis = {
-                autoImportCompletions = true,
-                autoSearchPaths = true,
-                diagnosticMode = 'workspace',
-                typeCheckingMode = 'strict',
-                useLibraryCodeForTypes = true,
-            }
-        }
-    }
-}
 lsp.tailwindcss.setup {
     on_attach = on_attach,
     capabilities = caps,
