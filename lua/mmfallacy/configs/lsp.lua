@@ -49,7 +49,15 @@ local on_attach = function(client, bufnr)
     on_attach_base(client, bufnr);
 end
 -- Language Server Setups
-lsp.lua_ls.setup { on_attach = on_attach, capabilities = caps }
+lsp.lua_ls.setup { on_attach = on_attach, capabilities = caps,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
 lsp.denols.setup {
     on_attach = on_attach,
     capabilities = caps,
