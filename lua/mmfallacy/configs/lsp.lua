@@ -8,7 +8,7 @@ require "mason-lspconfig".setup({
         'denols',
         'svelte',
         'pyright',
-        'tailwindcss-language-server'
+        'tailwindcss'
     }
 })
 
