@@ -10,6 +10,7 @@ require "mason-lspconfig".setup({
         'pyright',
         'tailwindcss',
         'eslint',
+        'jdtls',
     }
 })
 
@@ -101,6 +102,11 @@ lsp.eslint.setup {
         })
         on_attach_base(client, bufnr)
     end,
+    capabilities = caps,
+}
+
+lsp.jdtls.setup {
+    on_attach = on_attach,
     capabilities = caps,
 }
 
