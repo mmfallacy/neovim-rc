@@ -29,7 +29,6 @@ return function()
                 },
             },
         },
-        git = { ignore = true },
         view = {
             side = 'right',
         },
