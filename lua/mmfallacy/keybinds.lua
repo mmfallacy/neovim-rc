@@ -30,6 +30,7 @@ map('n', '<leader>fp', t.find_files, silent_noremap)
 map('n', '<leader>f,', function() t.find_files({ cwd = vim.fn.stdpath('config') }) end, silent_noremap)
 map('n', '<leader>ft', t.treesitter, silent_noremap)
 map('n', '<leader>fb', t.buffers, silent_noremap)
+map('n', '<leader>fc', "<CMD>TodoTelescope<CR>", silent_noremap)
 
 -- Sync Arrow Keys to HJKL
 map({ 'n', 'v' }, "<Left>", "<nop>")
