@@ -4,7 +4,6 @@ return function()
         ensure_installed = {
             'bash',
             'c',
-            'comment',
             'css',
             'git_rebase',
             'gitcommit',
