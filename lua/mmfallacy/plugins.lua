@@ -50,6 +50,12 @@ function plugins(use)
     }
 
     use {
+        'folke/todo-comments.nvim',
+        requires = { { 'nvim-lua/plenary.nvim' } },
+        config = function() require 'todo-comments'.setup() end
+    }
+
+    use {
         'echasnovski/mini.comment',
         config = require 'mmfallacy.configs.comment'
     }
@@ -78,6 +84,7 @@ function plugins(use)
         'echasnovski/mini.tabline',
         config = function() require 'mini.tabline'.setup() end
     }
+
 
     -- Lualine
     use {
@@ -128,6 +135,10 @@ function plugins(use)
         config = function() require 'gitsigns'.setup() end
     }
 
+
+    use {
+        'NoahTheDuke/vim-just',
+    }
 end
 
 return require 'packer'.startup(plugins)
